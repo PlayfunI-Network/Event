@@ -1,0 +1,8 @@
+name: Event
+author: PlayfunI Network
+version: 1.0
+main: com.gmail.playfuninetwork.event.Main
+softdepend:
+  - PlaceholderAPI
+commands:
+  event:
