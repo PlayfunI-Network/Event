@@ -13,7 +13,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
-    public static final String PREFIX = "§7[§cEvent§7] : §e";
+    public static final String PREFIX = "§7[§d活動§7]: ";
 
     public static Main instance;
 

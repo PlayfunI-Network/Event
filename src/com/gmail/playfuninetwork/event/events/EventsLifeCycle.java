@@ -44,7 +44,7 @@ public class EventsLifeCycle implements Listener {
         }
         if (e.getEntity() instanceof Player && isStaff((Player)e.getEntity()) && ((Player)e.getEntity()).getHealth() <= e.getDamage()) {
             e.setCancelled(true);
-            ((Player)e.getEntity()).sendMessage("§ 7[§cEvent§7] : §c管理員模式. 你將不會死亡");
+            ((Player)e.getEntity()).sendMessage(Main.PREFIX + "管理員模式. 你將不會死亡");
         }
     }
 
@@ -63,7 +63,7 @@ public class EventsLifeCycle implements Listener {
         } else if (this.respawn != null) {
             e.setRespawnLocation(this.respawn);
         }
-        e.getPlayer().sendMessage("§c§l你被淘汰了! 不過仍有復活機會喔..");
+        e.getPlayer().sendMessage(Main.PREFIX + "§c§l你被淘汰了! 不過仍有復活機會喔..");
     }
 
     public boolean respawn(Player p) {
@@ -89,7 +89,7 @@ public class EventsLifeCycle implements Listener {
             }
             for (Player p : this.dead) {
                 this.alive.add(p);
-                p.sendMessage("§a§l你被復活了!");
+                p.sendMessage(Main.PREFIX + "§a§l你被復活了!");
             }
             this.dead.clear();
             return true;

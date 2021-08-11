@@ -40,9 +40,9 @@ public class EventsPlayerManager implements Listener {
     public void onChat(AsyncPlayerChatEvent e) {
         if (this.chatMuted && !e.getPlayer().hasPermission("event.staff")) {
             if (this.question != null) {
-                e.getPlayer().sendMessage("§7[§cEvent§7] : §e"+ (this.question.getAnswer().equalsIgnoreCase(e.getMessage()) ? "§a§lGreat!You got it right!" : "§cWrong! Try again."));
+                e.getPlayer().sendMessage(Main.PREFIX + (this.question.getAnswer().equalsIgnoreCase(e.getMessage()) ? "§a§lGreat!You got it right!" : "§cWrong! Try again."));
             } else {
-                e.getPlayer().sendMessage("§7[§cEvent§7] : §c§l聊天室目前關閉!");
+                e.getPlayer().sendMessage(Main.PREFIX  + "§c§l聊天室目前關閉!");
             }
             e.setCancelled(true);
         }
@@ -76,7 +76,7 @@ public class EventsPlayerManager implements Listener {
 
     public void muteChat(CommandSender by) {
         this.chatMuted = !this.chatMuted;
-        Bukkit.broadcastMessage("§7[§cEvent§7] : §e聊天室已被 " + (this.chatMuted ? "muted" : "unmuted") + " by §c" + by
+        Bukkit.broadcastMessage(Main.PREFIX + "聊天室已被 " + (this.chatMuted ? "muted" : "unmuted") + " by §c" + by
 
                 .getName());
     }
@@ -85,14 +85,14 @@ public class EventsPlayerManager implements Listener {
         if (this.delay != null)
             this.delay.cancel();
         this.frozen = true;
-        Bukkit.broadcastMessage("§7[§cEvent§7] :§a" + name + " §e暫停了伺服器. 請稍待片刻!");
-        Bukkit.broadcastMessage("§7[§cEvent§7] :§a" + name + " §e伺服器暫停將停止於 §a"+ seconds + "§e 秒.");
+        Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e暫停了伺服器. 請稍待片刻!");
+        Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e伺服器暫停將結束於 §a"+ seconds + "§e 秒.");
         this
 
                 .delay = (new BukkitRunnable() {
             public void run() {
                 EventsPlayerManager.this.frozen = false;
-                Bukkit.broadcastMessage("§7[§cEvent§7] : §a" + name + " §e解除了伺服器暫停!");
+                Bukkit.broadcastMessage(Main.PREFIX + "Main.PREFIX + §a" + name + " §e解除了伺服器暫停!");
             }
         }).runTaskLater((Plugin)this.main, (seconds * 20));
     }
@@ -100,9 +100,9 @@ public class EventsPlayerManager implements Listener {
     public void toggleFreeze(String name) {
         this.frozen = !this.frozen;
         if (this.frozen) {
-            Bukkit.broadcastMessage("§7[§cEvent§7] :§a" + name + " §e暫停了伺服器. 請稍待片刻!");
+            Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e暫停了伺服器. 請稍待片刻!");
         } else {
-            Bukkit.broadcastMessage("§7[§cEvent§7] :§a" + name + " §e解除了伺服器暫停!");
+            Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e解除了伺服器暫停!");
         }
     }
 

@@ -41,7 +41,7 @@ public class Question implements Listener {
                 e.setCancelled(true);
             }
         } else if (this.guessed.contains(e.getPlayer().getName())) {
-            e.getPlayer().sendMessage("§7[§cEvent§7] : §c請等待問題結束!");
+            e.getPlayer().sendMessage(Main.PREFIX + "§c請等待問題結束!");
             e.setCancelled(true);
         }
     }
@@ -51,14 +51,14 @@ public class Question implements Listener {
             this.playerManager.muteChat(this.initializer);
         Bukkit.getPluginManager().registerEvents(this, (Plugin)this.main);
         Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage("§7[§cEvent§7] : §a" + this.initializer.getName() + "§7 : §e" + this.question);
+        Bukkit.broadcastMessage(Main.PREFIX + "§a" + this.initializer.getName() + "§7 : §e" + this.question);
         Bukkit.broadcastMessage("");
     }
 
     public void finish() {
         if (this.guessed.size() == 0) {
             Bukkit.broadcastMessage("");
-            Bukkit.broadcastMessage("§7[§cEvent§7] : §c問題已被強制終止!");
+            Bukkit.broadcastMessage(Main.PREFIX + "§c問題已被強制終止!");
             Bukkit.broadcastMessage("");
             AsyncPlayerChatEvent.getHandlerList().unregister(this);
             this.playerManager.muteChat(this.initializer);
@@ -69,7 +69,7 @@ public class Question implements Listener {
             players = players + p + ", ";
         players = players.substring(0, players.length() - 2);
         Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage("§7[§cEvent§7] : §e"+ ((this.guessed.size() > 1) ? "玩家 §a" : "玩家 §a") + players + " §e猜對了! 答案是 : §7:" + this.answer + "§e.");
+        Bukkit.broadcastMessage(Main.PREFIX + "§e"+ ((this.guessed.size() > 1) ? "玩家 §a" : "玩家 §a") + players + " §e猜對了! 答案是 : §7:" + this.answer + "§e.");
         Bukkit.broadcastMessage("");
         AsyncPlayerChatEvent.getHandlerList().unregister(this);
         this.playerManager.muteChat(this.initializer);
