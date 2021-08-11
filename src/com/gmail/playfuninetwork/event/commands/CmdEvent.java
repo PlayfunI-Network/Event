@@ -144,7 +144,7 @@ public class CmdEvent implements CommandExecutor {
         sender.sendMessage(Main.PREFIX + "§e/event staff [<player>]");
         sender.sendMessage(Main.PREFIX + "§e/event freeze [<second(s)>] ");
         sender.sendMessage(Main.PREFIX + "§e/event whitelist <removeall/addall>");
-        sender.sendMessage(Main.PREFIX + "§e/event tp <all/live/dead>");
+        sender.sendMessage(Main.PREFIX + "§e/event tp <all/alive/dead>");
         sender.sendMessage(Main.PREFIX + "§e/event revive <all/player>");
         sender.sendMessage(Main.PREFIX + "§e/event question <question> <answer> [<maxRight>]");
         sender.sendMessage("");
