@@ -34,6 +34,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents((Listener)this.playerManager, (Plugin)this);
         Bukkit.getPluginCommand("event").setExecutor((CommandExecutor)this.cmd_event);
         Bukkit.getPluginCommand("event").setTabCompleter((TabCompleter)new TabEvent());
+
     }
 
     public static Main getInstance() {
