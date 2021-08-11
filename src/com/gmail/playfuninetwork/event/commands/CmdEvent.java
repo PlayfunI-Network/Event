@@ -96,7 +96,7 @@ public class CmdEvent implements CommandExecutor {
                 if (this.lifeCycle.setStaff(p)) {
                     p.sendMessage(Main.PREFIX + "§e你已進入 §c管理員模式.");
                 } else {
-                    sender.sendMessage("7[§cEvent§7] : §c已將該玩家退出管理員模式!");
+                    sender.sendMessage(Main.PREFIX + "§c已將該玩家退出管理員模式!");
                     p.sendMessage(Main.PREFIX + "§c你退出了 §7管理員 §模式.");
                 }
             } else if (args[0].equals("freeze")) {
