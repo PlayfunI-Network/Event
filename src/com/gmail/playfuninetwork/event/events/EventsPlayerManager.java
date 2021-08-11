@@ -36,7 +36,7 @@ public class EventsPlayerManager implements Listener {
     public void onChat(AsyncPlayerChatEvent e) {
         if (this.chatMuted && !e.getPlayer().hasPermission("event.staff")) {
             if (this.question != null) {
-                e.getPlayer().sendMessage(Main.PREFIX + (this.question.getAnswer().equalsIgnoreCase(e.getMessage()) ? "§a§lGreat!You got it right!" : "§cWrong! Try again."));
+                e.getPlayer().sendMessage(Main.PREFIX + (this.question.getAnswer().equalsIgnoreCase(e.getMessage()) ? "§a§l恭喜!! 你答對了" : "§c錯誤! 請再試一次"));
             } else {
                 e.getPlayer().sendMessage(Main.PREFIX + "§c§l聊天室目前關閉!");
             }
