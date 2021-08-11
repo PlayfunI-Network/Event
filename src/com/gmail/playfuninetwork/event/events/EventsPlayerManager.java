@@ -77,7 +77,7 @@ public class EventsPlayerManager implements Listener {
                 .delay = (new BukkitRunnable() {
             public void run() {
                 EventsPlayerManager.this.frozen = false;
-                Bukkit.broadcastMessage(Main.PREFIX + "Main.PREFIX + §a" + name + " §e解除了伺服器暫停!");
+                Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e解除了伺服器暫停!");
             }
         }).runTaskLater((Plugin) this.main, (seconds * 20));
     }
