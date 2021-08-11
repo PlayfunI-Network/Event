@@ -16,7 +16,7 @@ public class TabEvent implements TabCompleter {
 
     private static final String[] ARGS_WHITELIST2 = new String[] { "removeall", "addall" };
 
-    private static final String[] ARGS_TP2 = new String[] { "all", "live", "dead" };
+    private static final String[] ARGS_TP2 = new String[] { "all", "alive", "dead" };
 
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> completions = new ArrayList<>();

@@ -59,7 +59,7 @@ public class CmdEvent implements CommandExecutor {
                 if (args[1].equals("all")) {
                     Bukkit.getOnlinePlayers().forEach(p -> p.teleport((Entity)sender));
                     sender.sendMessage(Main.PREFIX + "§e你已傳送 所有玩家.");
-                } else if (args[1].equals("live")) {
+                } else if (args[1].equals("alive")) {
                     this.lifeCycle.alive.forEach(p -> p.teleport((Entity)sender));
                     sender.sendMessage(Main.PREFIX + "§e你傳送了 §c存活玩家 §e到你身邊.");
                 } else if (args[1].equals("dead")) {
