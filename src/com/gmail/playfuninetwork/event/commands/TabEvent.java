@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 
 public class TabEvent implements TabCompleter {
-    private static final String[] ARGS1 = new String[] { "setspawn", "setrespawn", "mutechat", "changeflow", "staff", "freeze", "whitelist", "tp", "revive", "question" };
+    private static final String[] ARGS1 = new String[] { "setspawn", "setrespawn", "mutechat", "staff", "freeze", "whitelist", "tp", "revive", "question" };
 
     private static final String[] ARGS_WHITELIST2 = new String[] { "removeall", "addall" };
 

@@ -1,15 +1,13 @@
 package com.gmail.playfuninetwork.event.events;
 
-import me.clip.placeholderapi.PlaceholderAPI;
 import com.gmail.playfuninetwork.event.Main;
 import com.gmail.playfuninetwork.event.question.Question;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -26,8 +24,6 @@ public class EventsPlayerManager implements Listener {
 
     public boolean frozen = false;
 
-    public boolean flow = true;
-
     private BukkitTask delay;
 
     Question question;
@@ -42,7 +38,7 @@ public class EventsPlayerManager implements Listener {
             if (this.question != null) {
                 e.getPlayer().sendMessage(Main.PREFIX + (this.question.getAnswer().equalsIgnoreCase(e.getMessage()) ? "§a§lGreat!You got it right!" : "§cWrong! Try again."));
             } else {
-                e.getPlayer().sendMessage(Main.PREFIX  + "§c§l聊天室目前關閉!");
+                e.getPlayer().sendMessage(Main.PREFIX + "§c§l聊天室目前關閉!");
             }
             e.setCancelled(true);
         }
@@ -65,15 +61,6 @@ public class EventsPlayerManager implements Listener {
             e.setCancelled(true);
     }
 
-    @EventHandler
-    public void onLiquidChange(BlockFromToEvent e) {
-        if (!this.flow && (e.getBlock().getType() == Material.LAVA || e
-                .getBlock().getType() == Material.STATIONARY_LAVA || e
-                .getBlock().getType() == Material.WATER || e
-                .getBlock().getType() == Material.STATIONARY_WATER))
-            e.setCancelled(true);
-    }
-
     public void muteChat(CommandSender by) {
         this.chatMuted = !this.chatMuted;
         Bukkit.broadcastMessage(Main.PREFIX + "聊天室已被 " + (this.chatMuted ? "muted" : "unmuted") + " by §c" + by
@@ -86,7 +73,7 @@ public class EventsPlayerManager implements Listener {
             this.delay.cancel();
         this.frozen = true;
         Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e暫停了伺服器. 請稍待片刻!");
-        Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e伺服器暫停將結束於 §a"+ seconds + "§e 秒.");
+        Bukkit.broadcastMessage(Main.PREFIX + "§a" + name + " §e伺服器暫停將結束於 §a" + seconds + "§e 秒.");
         this
 
                 .delay = (new BukkitRunnable() {
@@ -94,7 +81,7 @@ public class EventsPlayerManager implements Listener {
                 EventsPlayerManager.this.frozen = false;
                 Bukkit.broadcastMessage(Main.PREFIX + "Main.PREFIX + §a" + name + " §e解除了伺服器暫停!");
             }
-        }).runTaskLater((Plugin)this.main, (seconds * 20));
+        }).runTaskLater((Plugin) this.main, (seconds * 20));
     }
 
     public void toggleFreeze(String name) {
@@ -106,10 +93,6 @@ public class EventsPlayerManager implements Listener {
         }
     }
 
-    public void changeFlow(CommandSender by) {
-        this.flow = !this.flow;
-        by.sendMessage("§7[§cEvent§7] : §e" + (this.flow ? "" : "§c") + "流體已被 " + (this.flow ? "continued" : "stopped") + ".");
-    }
 
     public void startNewQuestion(Question question) {
         if (this.question != null)

@@ -32,8 +32,6 @@ public class CmdEvent implements CommandExecutor {
                 sender.sendMessage(Main.PREFIX + "§c§重生點 §e設置成功.");
             } else if (args[0].equals("mutechat")) {
                 this.playerManager.muteChat(sender);
-            } else if (args[0].equals("changeflow")) {
-                this.playerManager.changeFlow(sender);
             } else if (args[0].equals("staff")) {
                 Player p = (Player)sender;
                 if (this.lifeCycle.setStaff(p)) {
@@ -143,7 +141,6 @@ public class CmdEvent implements CommandExecutor {
         sender.sendMessage(Main.PREFIX + "§e/event setspawn");
         sender.sendMessage(Main.PREFIX + "§e/event setrespawn");
         sender.sendMessage(Main.PREFIX + "§e/event mutechat");
-        sender.sendMessage(Main.PREFIX + "§e/event changeflow");
         sender.sendMessage(Main.PREFIX + "§e/event staff [<player>]");
         sender.sendMessage(Main.PREFIX + "§e/event freeze [<second(s)>] ");
         sender.sendMessage(Main.PREFIX + "§e/event whitelist <removeall/addall>");
