@@ -63,7 +63,7 @@ public class EventsPlayerManager implements Listener {
 
     public void muteChat(CommandSender by) {
         this.chatMuted = !this.chatMuted;
-        Bukkit.broadcastMessage(Main.PREFIX + "聊天室已被 §c" +  by.getName() + (this.chatMuted ? " 禁言" : " 解除禁言"));
+        Bukkit.broadcastMessage(Main.PREFIX + "聊天室已被 §c" + by.getName() + (this.chatMuted ? " 禁言" : " 解除禁言"));
     }
 
     public void freezeForTime(int seconds, final String name) {

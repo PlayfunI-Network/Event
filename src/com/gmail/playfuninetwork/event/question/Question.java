@@ -1,6 +1,5 @@
 package com.gmail.playfuninetwork.event.question;
 
-import java.util.ArrayList;
 import com.gmail.playfuninetwork.event.Main;
 import com.gmail.playfuninetwork.event.events.EventsPlayerManager;
 import org.bukkit.Bukkit;
@@ -9,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
+
+import java.util.ArrayList;
 
 public class Question implements Listener {
     Main main = Main.getInstance();
@@ -49,7 +50,7 @@ public class Question implements Listener {
     public void start() {
         if (this.playerManager.chatMuted)
             this.playerManager.muteChat(this.initializer);
-        Bukkit.getPluginManager().registerEvents(this, (Plugin)this.main);
+        Bukkit.getPluginManager().registerEvents(this, (Plugin) this.main);
         Bukkit.broadcastMessage("");
         Bukkit.broadcastMessage(Main.PREFIX + "§a" + this.initializer.getName() + "§7 : §e" + this.question);
         Bukkit.broadcastMessage("");
@@ -69,7 +70,7 @@ public class Question implements Listener {
             players = players + p + ", ";
         players = players.substring(0, players.length() - 2);
         Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage(Main.PREFIX + "§e"+ ((this.guessed.size() > 1) ? "玩家 §a" : "玩家 §a") + players + " §e猜對了! 答案是 : §7:" + this.answer + "§e.");
+        Bukkit.broadcastMessage(Main.PREFIX + "§e" + ((this.guessed.size() > 1) ? "玩家 §a" : "玩家 §a") + players + " §e猜對了! 答案是 : §7:" + this.answer + "§e.");
         Bukkit.broadcastMessage("");
         AsyncPlayerChatEvent.getHandlerList().unregister(this);
         this.playerManager.muteChat(this.initializer);

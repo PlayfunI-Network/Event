@@ -25,15 +25,15 @@ public class CmdEvent implements CommandExecutor {
         }
         if (args.length == 1) {
             if (args[0].equals("setspawn")) {
-                this.lifeCycle.spawn = ((Player)sender).getLocation();
+                this.lifeCycle.spawn = ((Player) sender).getLocation();
                 sender.sendMessage(Main.PREFIX + "§c§出生點 §e設置成功.");
             } else if (args[0].equals("setrespawn")) {
-                this.lifeCycle.respawn = ((Player)sender).getLocation();
+                this.lifeCycle.respawn = ((Player) sender).getLocation();
                 sender.sendMessage(Main.PREFIX + "§c§重生點 §e設置成功.");
             } else if (args[0].equals("mutechat")) {
                 this.playerManager.muteChat(sender);
             } else if (args[0].equals("staff")) {
-                Player p = (Player)sender;
+                Player p = (Player) sender;
                 if (this.lifeCycle.setStaff(p)) {
                     p.sendMessage(Main.PREFIX + "§e你已進入 §c管理員模式§e.");
                 } else {
@@ -47,23 +47,23 @@ public class CmdEvent implements CommandExecutor {
         } else if (args.length == 2) {
             if (args[0].equals("whitelist")) {
                 if (args[1].equals("addall")) {
-                    Bukkit.getOnlinePlayers().forEach(p -> Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "whitelist add " + p.getName()));
+                    Bukkit.getOnlinePlayers().forEach(p -> Bukkit.dispatchCommand((CommandSender) Bukkit.getConsoleSender(), "whitelist add " + p.getName()));
                     sender.sendMessage(Main.PREFIX + "§e成功將所有玩家新增至白名單.");
                 } else if (args[1].equals("removeall")) {
-                    Bukkit.getWhitelistedPlayers().forEach(p -> Bukkit.dispatchCommand((CommandSender)Bukkit.getConsoleSender(), "whitelist remove " + p.getName()));
+                    Bukkit.getWhitelistedPlayers().forEach(p -> Bukkit.dispatchCommand((CommandSender) Bukkit.getConsoleSender(), "whitelist remove " + p.getName()));
                     sender.sendMessage(Main.PREFIX + "§e成功清空所有白名單.");
                 } else {
                     sendHelp(sender);
                 }
             } else if (args[0].equals("tp")) {
                 if (args[1].equals("all")) {
-                    Bukkit.getOnlinePlayers().forEach(p -> p.teleport((Entity)sender));
+                    Bukkit.getOnlinePlayers().forEach(p -> p.teleport((Entity) sender));
                     sender.sendMessage(Main.PREFIX + "§e你已傳送 所有玩家.");
                 } else if (args[1].equals("alive")) {
-                    this.lifeCycle.alive.forEach(p -> p.teleport((Entity)sender));
+                    this.lifeCycle.alive.forEach(p -> p.teleport((Entity) sender));
                     sender.sendMessage(Main.PREFIX + "§e你傳送了 §c存活玩家 §e到你身邊.");
                 } else if (args[1].equals("dead")) {
-                    this.lifeCycle.dead.forEach(p -> p.teleport((Entity)sender));
+                    this.lifeCycle.dead.forEach(p -> p.teleport((Entity) sender));
                     sender.sendMessage(Main.PREFIX + "§e你傳送了 §c淘汰玩家 §e到你身邊.");
                 } else {
                     sendHelp(sender);
@@ -71,7 +71,7 @@ public class CmdEvent implements CommandExecutor {
             } else if (args[0].equals("revive")) {
                 if (args[1].equals("all")) {
                     if (this.lifeCycle.respawnAll()) {
-                        Bukkit.broadcastMessage(Main.PREFIX + "§a所有玩家 §e都被復活了! by §c"+ sender.getName());
+                        Bukkit.broadcastMessage(Main.PREFIX + "§a所有玩家 §e都被復活了! by §c" + sender.getName());
                     } else {
                         sender.sendMessage(Main.PREFIX + "§c請設置一個重生點!");
                     }
@@ -82,7 +82,7 @@ public class CmdEvent implements CommandExecutor {
                         return true;
                     }
                     if (this.lifeCycle.respawn(p)) {
-                        Bukkit.broadcastMessage(Main.PREFIX + "§a"+ p.getName() + "§e已經復活 by §c"+ sender.getName());
+                        Bukkit.broadcastMessage(Main.PREFIX + "§a" + p.getName() + "§e已經復活 by §c" + sender.getName());
                     } else {
                         sender.sendMessage(Main.PREFIX + "§c玩家仍然存活 或 重生點未被設置!");
                     }

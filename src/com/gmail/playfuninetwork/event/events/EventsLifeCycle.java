@@ -1,7 +1,5 @@
 package com.gmail.playfuninetwork.event.events;
 
-import java.util.ArrayList;
-import java.util.Optional;
 import com.gmail.playfuninetwork.event.Main;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -11,6 +9,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 public class EventsLifeCycle implements Listener {
     Main main = Main.getInstance();
@@ -42,9 +43,9 @@ public class EventsLifeCycle implements Listener {
             e.setCancelled(true);
             return;
         }
-        if (e.getEntity() instanceof Player && isStaff((Player)e.getEntity()) && ((Player)e.getEntity()).getHealth() <= e.getDamage()) {
+        if (e.getEntity() instanceof Player && isStaff((Player) e.getEntity()) && ((Player) e.getEntity()).getHealth() <= e.getDamage()) {
             e.setCancelled(true);
-            ((Player)e.getEntity()).sendMessage(Main.PREFIX + "管理員模式. 你將不會死亡");
+            ((Player) e.getEntity()).sendMessage(Main.PREFIX + "管理員模式. 你將不會死亡");
         }
     }
 

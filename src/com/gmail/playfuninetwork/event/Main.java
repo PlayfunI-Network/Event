@@ -1,10 +1,10 @@
 package com.gmail.playfuninetwork.event;
 
+import com.gmail.playfuninetwork.event.commands.CmdEvent;
+import com.gmail.playfuninetwork.event.commands.TabEvent;
 import com.gmail.playfuninetwork.event.events.AlivePapiExtension;
 import com.gmail.playfuninetwork.event.events.EventsLifeCycle;
 import com.gmail.playfuninetwork.event.events.EventsPlayerManager;
-import com.gmail.playfuninetwork.event.commands.CmdEvent;
-import com.gmail.playfuninetwork.event.commands.TabEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
@@ -30,10 +30,10 @@ public class Main extends JavaPlugin {
         this.cmd_event = new CmdEvent();
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null)
             (new AlivePapiExtension(this.lifeCycle)).register();
-        Bukkit.getPluginManager().registerEvents((Listener)this.lifeCycle, (Plugin)this);
-        Bukkit.getPluginManager().registerEvents((Listener)this.playerManager, (Plugin)this);
-        Bukkit.getPluginCommand("event").setExecutor((CommandExecutor)this.cmd_event);
-        Bukkit.getPluginCommand("event").setTabCompleter((TabCompleter)new TabEvent());
+        Bukkit.getPluginManager().registerEvents((Listener) this.lifeCycle, (Plugin) this);
+        Bukkit.getPluginManager().registerEvents((Listener) this.playerManager, (Plugin) this);
+        Bukkit.getPluginCommand("event").setExecutor((CommandExecutor) this.cmd_event);
+        Bukkit.getPluginCommand("event").setTabCompleter((TabCompleter) new TabEvent());
 
     }
 
