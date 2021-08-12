@@ -26,10 +26,10 @@ public class CmdEvent implements CommandExecutor {
         if (args.length == 1) {
             if (args[0].equals("setspawn")) {
                 this.lifeCycle.spawn = ((Player) sender).getLocation();
-                sender.sendMessage(Main.PREFIX + "§c§出生點 §e設置成功.");
+                sender.sendMessage(Main.PREFIX + "§c出生點 §e設置成功.");
             } else if (args[0].equals("setrespawn")) {
                 this.lifeCycle.respawn = ((Player) sender).getLocation();
-                sender.sendMessage(Main.PREFIX + "§c§重生點 §e設置成功.");
+                sender.sendMessage(Main.PREFIX + "§c重生點 §e設置成功.");
             } else if (args[0].equals("mutechat")) {
                 this.playerManager.muteChat(sender);
             } else if (args[0].equals("staff")) {
