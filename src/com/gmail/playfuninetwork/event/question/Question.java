@@ -70,7 +70,7 @@ public class Question implements Listener {
             players = players + p + ", ";
         players = players.substring(0, players.length() - 2);
         Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage(Main.PREFIX + "§e" + ((this.guessed.size() > 1) ? "玩家 §a" : "玩家 §a") + players + " §e猜對了! 答案是 : §7:" + this.answer + "§e.");
+        Bukkit.broadcastMessage(Main.PREFIX + "§e" + ((this.guessed.size() > 1) ? "玩家 §a" : "玩家 §a") + players + " §e猜對了! 答案是: §7" + this.answer + "§e.");
         Bukkit.broadcastMessage("");
         AsyncPlayerChatEvent.getHandlerList().unregister(this);
         this.playerManager.muteChat(this.initializer);
