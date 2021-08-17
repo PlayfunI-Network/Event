@@ -42,8 +42,8 @@ public class Question implements Listener {
                 e.setCancelled(true);
             }
         } else if (this.guessed.contains(e.getPlayer().getName())) {
-            e.getPlayer().sendMessage(Main.PREFIX + "§c請等待問題結束!");
-            e.setCancelled(true);
+//            e.getPlayer().sendMessage(Main.PREFIX + "§c請等待問題結束!");
+//            e.setCancelled(true);
         }
     }
 
